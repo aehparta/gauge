@@ -27,7 +27,7 @@ Empty module skeleton.
 # gui
 Graphical user interface for devlib.
 
-First real data capture test:
+First two signals are real 1 kHz data captured using FT232H based digital analysator with 1 MS/s:
 ![First real data capture](http://up.zeraw.biz/dl/GW05s8/first-real-data.png)
 
 # multimeter
