@@ -10,8 +10,8 @@ equals(QT_MAJOR_VERSION, 5) {
     greaterThan(QT_MINOR_VERSION, 6) {
         SUBDIRS += gui multimeter
     } else {
-        warning("Will NOT compile graphical applications, atleast Qt 5.7 required")
+        warning("Will NOT compile graphical applications, at least Qt 5.7 required")
     }
 } else {
-    warning("Will NOT compile graphical applications, atleast Qt 5.7 required")
+    warning("Will NOT compile graphical applications, at least Qt 5.7 required")
 }
