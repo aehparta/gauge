@@ -1,0 +1,11 @@
+vendor_id=0x0403
+product_id=0x7777
+
+max_power=100
+
+manufacturer="tldr.fi"
+product="8-channel digital probe"
+
+self_powered=false
+remote_wakeup=false
+use_serial=true

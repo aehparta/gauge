@@ -1,0 +1,10 @@
+singleton Style 1.0 Style.qml
+BasicButton 1.0 BasicButton.qml
+BasicButtonLarge 1.0 BasicButtonLarge.qml
+BasicComboBox 1.0 BasicComboBox.qml
+Triggers 1.0 Triggers.qml
+Trigger 1.0 Trigger.qml
+ToolsLayout 1.0 ToolsLayout.qml
+SignalsLayout 1.0 SignalsLayout.qml
+SignalsView 1.0 SignalsView.qml
+SignalsDisplay 1.0 SignalsDisplay.qml

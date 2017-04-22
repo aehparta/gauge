@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qmldir</file>
+        <file>Main.js</file>
+        <file>Signal.js</file>
+        <file>Style.qml</file>
+        <file>BasicButtonLarge.qml</file>
+        <file>Triggers.qml</file>
+        <file>Trigger.qml</file>
+        <file>ToolsLayout.qml</file>
+        <file>SignalsLayout.qml</file>
+        <file>SignalsView.qml</file>
+        <file>BasicButton.qml</file>
+        <file>BasicComboBox.qml</file>
+        <file>SquareButton.qml</file>
+        <file>shaders/digital_simple_vertex.vert</file>
+        <file>shaders/digital_simple_fragment.frag</file>
+        <file>shaders/digital_simple_geometry.vert</file>
+        <file>shaders/analog_simple_fragment.frag</file>
+        <file>shaders/analog_simple_vertex.vert</file>
+        <file>shaders/grid.frag</file>
+        <file>shaders/grid.vert</file>
+        <file>SignalsChannelControl.qml</file>
+        <file>Sampling.qml</file>
+        <file>SignalsChannelInfo.qml</file>
+    </qresource>
+</RCC>
