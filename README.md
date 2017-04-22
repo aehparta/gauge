@@ -1,4 +1,8 @@
 # gauge
+Gauge is a software collection that originally started as a multimeter application
+and separate digital analysator library. Everything has been since merged into
+the same repository. Multimeter application itself has evolved into something able
+to control even the lights in my apartment.
 
 # [devlib](devlib)
 Library for managing devices.
