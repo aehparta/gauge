@@ -4,7 +4,13 @@
 Library for handling devices.
 
 ## modules
-Different device driver modules for devlib.
+Device driver modules for devlib.
+
+### dev-test
+Input test device driver:
+* 1 kHz 8 channel digital counter
+* 1 kHz sine wave
+* 1 kHz sawtooth 
 
 ## gui
 Graphical user interface for devlib.
