@@ -27,6 +27,9 @@ Empty module skeleton.
 # gui
 Graphical user interface for devlib.
 
+First real data capture test:
+![First real data capture](http://up.zeraw.biz/dl/GW05s8/first-real-data.png)
+
 # multimeter
 Simple multimeter application that supports bluetooth devices. Work on android and linux.
 Windows support might be available in the future when bluetooth starts working with Qt in windows.
