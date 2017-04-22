@@ -1,7 +1,7 @@
 # gauge
 
 ## devlib
-Library for handling devices.
+Library for managing devices.
 
 ## modules
 Device driver modules for devlib.
