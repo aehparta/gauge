@@ -12,6 +12,14 @@ Input test device driver:
 * 1 kHz sine wave
 * 1 kHz sawtooth 
 
+### dev-ftd2xx
+FTDI driver.
+Supports:
+* [FT232H](http://www.ftdichip.com/Products/ICs/FT232H.htm)
+
+### skeleton
+Empty module skeleton.
+
 ## gui
 Graphical user interface for devlib.
 
