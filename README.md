@@ -21,7 +21,7 @@ FTDI driver.
 Supports:
 * [FT232H](http://www.ftdichip.com/Products/ICs/FT232H.htm)
 
-## [skeleton](modules/dev-skeleton)
+## [skeleton](modules/skeleton)
 Empty module skeleton.
 
 # [gui](gui)
