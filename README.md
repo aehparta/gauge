@@ -32,7 +32,7 @@ First two signals are real 1 kHz data captured using FT232H based digital analys
 ![First real data capture](http://up.zeraw.biz/dl/GW05s8/first-real-data.png)
 
 # [multimeter](multimeter)
-Simple multimeter application that supports bluetooth devices. Work on android and linux.
+Simple multimeter application that supports bluetooth devices. Works in android and linux.
 Windows support might be available in the future when bluetooth starts working with Qt in windows.
 
 First view has some real values shown, second one is a test:
