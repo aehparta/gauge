@@ -28,9 +28,11 @@ Empty module skeleton.
 Graphical user interface for devlib. OpenGL 3.3 and Qt 5.7 required.
 
 First two signals are real 1 kHz data captured using FT232H based digital analysator with 1 MS/s:
+
 ![First real data capture](http://up.zeraw.biz/dl/GW05s8/first-real-data.png)
 
 # [multimeter](multimeter)
 Simple multimeter application that supports bluetooth devices. Work on android and linux.
 Windows support might be available in the future when bluetooth starts working with Qt in windows.
+
 ![Example](http://up.zeraw.biz/dl/naCA6A/screenshot4.png)
