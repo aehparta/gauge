@@ -10,4 +10,10 @@ ADBUS7  -|8   13|-  ACBUS4
 ACBUS8  -|9   12|-  ACBUS3
 ACBUS1  -|10  11|-  ACBUS2
 
+#ISP-signals
+  sck    = 0;
+  mosi   = 1;
+  miso   = 2;
+  reset  = 3;
+
 ```
