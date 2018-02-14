@@ -36,8 +36,7 @@
 extern "C" {
 #endif
 
-struct devlib
-{
+struct devlib {
 	dll_t dll;
 	char *name;
 
@@ -60,8 +59,7 @@ struct devlib
 DLLEXP int devlib_init();
 DLLEXP void devlib_quit();
 DLLEXP int devlib_add_library(const char *lib_name);
-DLLEXP char **devlib_scan(const char *lib_name);
-DLLEXP int devlib_device_found(void *p, const char *serial);
+DLLEXP char **devlib_scan(const char *lib_name, int *count);
 DLLEXP struct device *devlib_open(const char *lib_name, const char *serial);
 DLLEXP const char *devlib_serial(struct device *dev);
 DLLEXP const char *devlib_name(struct device *dev);

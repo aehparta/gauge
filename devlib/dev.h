@@ -30,8 +30,7 @@
 extern "C" {
 #endif
 
-struct device_info_io
-{
+struct device_info_io {
 	/** Number of channels in this device. */
 	int channels;
 	/**
@@ -54,8 +53,7 @@ struct device_info_io
 };
 
 /** devlib process specific data for device */
-struct device_info_process
-{
+struct device_info_process {
 	struct devlib_process *process;
 	thread_t thread;
 	int paused;
@@ -72,8 +70,7 @@ struct device_info_process
 	int buffers_total;
 };
 
-struct device
-{
+struct device {
 	char *name;
 	char *serial;
 	int connected;
@@ -86,8 +83,7 @@ struct device
 	struct device *next;
 
 	/* device type specific data combined using union */
-	union
-	{
+	union {
 		struct device_info_io io;
 	};
 
@@ -112,8 +108,7 @@ DLLEXP void *dev_ioctl(struct device *dev, int request, va_list argv);
 /**
  * Device ioctl definitions.
  */
-enum DEV_IOCTLS
-{
+enum DEV_IOCTLS {
 	/** Get all intervals supported by this device (long double) */
 	DEV_IOCTL_INTERVALS,
 	/** Get current device interval (long double) */
@@ -133,8 +128,7 @@ enum DEV_IOCTLS
 /**
  * Device type definitions.
  */
-enum DEV_TYPES
-{
+enum DEV_TYPES {
 	DEV_TYPE_NONE,
 	/** IO device that can be read. */
 	DEV_TYPE_IO_READ,
@@ -149,8 +143,7 @@ enum DEV_TYPES
 /**
  * Data formats.
  */
-enum DEV_FORMATS
-{
+enum DEV_FORMATS {
 	DEV_FORMAT_NONE,
 	/** Digital format. */
 	DEV_FORMAT_DIGITAL,

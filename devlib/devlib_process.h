@@ -32,8 +32,7 @@
 extern "C" {
 #endif
 
-struct devlib_process_buffer
-{
+struct devlib_process_buffer {
 	/** buffer length in samples */
 	int count;
 	/** bytes per sample */
@@ -45,8 +44,7 @@ struct devlib_process_buffer
 	struct devlib_process_buffer *next;
 };
 
-struct devlib_process
-{
+struct devlib_process {
 	/** keep all process threads running until execute is 0 */
 	int execute;
 	/** pause all process threads until pause is 0 */
@@ -103,7 +101,7 @@ DLLEXP struct device *devlib_process_source(struct devlib_process *process);
 /**
  * Insert manipulation stage (filter/trigger) to process.
  */
-DLLEXP int devlib_process_insert(struct devlib_process *process, int index, const char *serial);
+DLLEXP int devlib_process_insert(struct devlib_process *process, int index, struct device *dev);
 /**
  * Remove manipulation stage (filter/trigger) from process.
  */

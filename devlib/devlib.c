@@ -64,14 +64,11 @@ int devlib_add_library(const char *lib_name)
 	err = 0;
 
 out_err:
-	if (dll_filename)
-	{
+	if (dll_filename) {
 		free(dll_filename);
 	}
-	if (err != 0 && lib)
-	{
-		if (lib->name)
-		{
+	if (err != 0 && lib) {
+		if (lib->name) {
 			free(lib->name);
 		}
 		free(lib);
@@ -79,7 +76,7 @@ out_err:
 	return err;
 }
 
-char **devlib_scan(const char *lib_name)
+char **devlib_scan(const char *lib_name, int *count)
 {
 	int n = 0, i;
 	struct devlib *lib;
@@ -88,47 +85,33 @@ char **devlib_scan(const char *lib_name)
 	char **serials;
 
 	/* find library */
-	for (lib = devlib_first; lib; lib = lib->next)
-	{
-		if (strcmp(lib->name, lib_name) == 0)
-		{
+	for (lib = devlib_first; lib; lib = lib->next) {
+		if (strcmp(lib->name, lib_name) == 0) {
 			break;
 		}
 	}
-	if (!lib)
-	{
+	if (!lib) {
 		WARNING_MSG("library not found: %s", lib_name);
-		return -1;
+		return NULL;
 	}
 
 	n = lib->scan(ss);
-	if (n < 0)
-	{
+	if (n < 0) {
 		WARNING_MSG("error when scanning devices for library: %s", lib_name);
-		return -1;
+		return NULL;
+	}
+	if (count) {
+		*count = n;
 	}
 
 	serials = malloc((n + 1) * sizeof(*serials));
 	memset(serials, 0, (n + 1) * sizeof(*serials));
-	for (s = ss[0], i = 0; s; s = s->next, i++)
-	{
+	for (s = ss[0], i = 0; s; s = s->next, i++) {
 		serials[i] = s->str;
 		free(s);
 	}
 
 	return serials;
-}
-
-int devlib_device_found(void *p, const char *serial)
-{
-	int err = 0;
-	struct ll_str **ss = p;
-	struct ll_str *s;
-	DD_SALLOC(s);
-	DD_STRDUP(s->str, serial);
-	LL_APP(ss[0], ss[1], s);
-out_err:
-	return err;
 }
 
 struct device *devlib_open(const char *lib_name, const char *serial)
@@ -137,15 +120,12 @@ struct device *devlib_open(const char *lib_name, const char *serial)
 	struct device *dev = NULL;
 	struct devlib *lib;
 	/* find library */
-	for (lib = devlib_first; lib; lib = lib->next)
-	{
-		if (strcmp(lib->name, lib_name) == 0)
-		{
+	for (lib = devlib_first; lib; lib = lib->next) {
+		if (strcmp(lib->name, lib_name) == 0) {
 			break;
 		}
 	}
-	if (!lib)
-	{
+	if (!lib) {
 		WARNING_MSG("library not found: %s", lib_name);
 		return NULL;
 	}
@@ -157,10 +137,8 @@ struct device *devlib_open(const char *lib_name, const char *serial)
 	dev->open = 1;
 	return dev;
 out_err:
-	if (dev)
-	{
-		if (dev->serial)
-		{
+	if (dev) {
+		if (dev->serial) {
 			free(dev->serial);
 		}
 		free(dev);
@@ -194,11 +172,9 @@ int devlib_manipulate(struct device *dev, struct device *src, uint8_t *data, int
 	int stride = 1;
 
 	/* setup */
-	if (!src && (dev->type == DEV_TYPE_IO_READ || dev->type == DEV_TYPE_IO_WRITE))
-	{
+	if (!src && (dev->type == DEV_TYPE_IO_READ || dev->type == DEV_TYPE_IO_WRITE)) {
 		format = dev->io.format;
-		switch (format)
-		{
+		switch (format) {
 		case DEV_FORMAT_DIGITAL:
 			stride = (int)ceil((double)dev->io.channels / 8.0);
 			break;
@@ -219,39 +195,30 @@ int devlib_manipulate(struct device *dev, struct device *src, uint8_t *data, int
 			stride = 4;
 			break;
 		}
-	}
-	else if (!src)
-	{
+	} else if (!src) {
 		ERROR_MSG("invalid parameters");
 		return -1;
-	}
-	else if (src->type == DEV_TYPE_IO_READ)
-	{
+	} else if (src->type == DEV_TYPE_IO_READ) {
 		int i;
 		int *formats = devlib_ioctl(dev, DEV_IOCTL_GET_FORMATS);
-		if (formats == DEV_IOCTL_ERROR || formats == DEV_IOCTL_UNKNOWN)
-		{
+		if (formats == DEV_IOCTL_ERROR || formats == DEV_IOCTL_UNKNOWN) {
 			ERROR_MSG("device has no formats");
 			return -1;
 		}
 		/* check that device supports source format */
 		format = DEV_FORMAT_NONE;
-		for (i = 0; formats[i] != DEV_FORMAT_NONE; i++)
-		{
-			if (formats[i] == src->io.format)
-			{
+		for (i = 0; formats[i] != DEV_FORMAT_NONE; i++) {
+			if (formats[i] == src->io.format) {
 				format = src->io.format;
 				break;
 			}
 		}
-		if (format == DEV_FORMAT_NONE)
-		{
+		if (format == DEV_FORMAT_NONE) {
 			ERROR_MSG("unsupported format");
 			return -1;
 		}
 		/* set stride by format */
-		switch (format)
-		{
+		switch (format) {
 		case DEV_FORMAT_DIGITAL:
 			stride = (int)ceil((double)src->io.channels / 8.0);
 			break;
@@ -272,9 +239,7 @@ int devlib_manipulate(struct device *dev, struct device *src, uint8_t *data, int
 			stride = src->io.channels * 4;
 			break;
 		}
-	}
-	else
-	{
+	} else {
 		ERROR_MSG("invalid parameters");
 		return -1;
 	}
